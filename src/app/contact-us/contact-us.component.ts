@@ -15,15 +15,14 @@ export class ContactUsComponent implements OnInit {
       name : new FormControl("",Validators.compose([
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(15),
-        Validators.pattern('\d+')
+        Validators.maxLength(32),
+        Validators.pattern('[A-Za-z]+')
       ])),
       email : new FormControl("",Validators.compose([
         Validators.required,
         Validators.pattern('^(\\w|\-|\.)+(\@)(\\w|\-)+(\.)(([a-z]{2,})|([a-z]{2}\.[a-z]{2}))$')
       ])),
       mob : new FormControl("",Validators.compose([
-        Validators.required,
         Validators.minLength(8),
         Validators.pattern('^(\\+)(\d|\-)+$')
       ])),
@@ -46,7 +45,7 @@ export class ContactUsComponent implements OnInit {
     if(field=="name")
       this.nameError=true;
     if(field=="email")
-      this.nameError=true;
+      this.emailError=true;
     if(field=="mob")
       this.mobError=true;
     if(field=="msg")

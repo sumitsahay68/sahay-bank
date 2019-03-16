@@ -19,12 +19,12 @@ export class SignupComponent implements OnInit {
         firstname :  new FormControl("",Validators.compose([
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(15),
+          Validators.maxLength(20),
           Validators.pattern('[a-zA-Z]+')
         ])),
         lastname :  new FormControl("",Validators.compose([
           Validators.minLength(3),
-          Validators.maxLength(15),
+          Validators.maxLength(20),
           Validators.pattern('[a-zA-Z]+')
         ])),
         gender :  new FormControl("",Validators.required),
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
         fname :  new FormControl("",Validators.compose([
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(15),
+          Validators.maxLength(32),
           Validators.pattern('[a-zA-Z]+')
         ])),
         email :  new FormControl("",Validators.compose([
@@ -62,14 +62,63 @@ export class SignupComponent implements OnInit {
     );
   }
 
- 
+  passMatch : boolean =false;
   checkPassword(form : FormGroup) : {[key:string]:boolean}|null  //Password Validator
   {
     let pass=form.controls.password.value==null?" ":form.controls.password.value;
     let cpass=form.controls.cpassword.value==null?" ":form.controls.cpassword.value;
+    
+    //error display
+    if(pass==cpass)
+      this.passMatch=true;
+    else
+      this.passMatch=false;  
 
     return (pass == cpass ? null : {"cpassword":false});
   }
+
+
+  //error display
+
+  firstnameError: boolean=false;
+  lastnameError: boolean=false;
+  //genderError: boolean=false;
+  dobError: boolean=false;
+  emailError: boolean=false;
+  fnameError: boolean=false;
+  addrError: boolean=false;
+  addProofError: boolean=false;
+  custError: boolean=false;
+  pwdError: boolean=false;
+  cpwdError: boolean=false;
+
+
+  activateError(field:string)
+  {
+    if(field=="firstname")
+      this.firstnameError=true;
+    if(field=="lastname")
+      this.lastnameError=true;  
+    //if(field=="gender")
+      //this.genderError=true;  
+    if(field=="dob")
+      this.dobError=true;  
+    if(field=="email")
+      this.emailError=true;
+    if(field=="fname")
+      this.fnameError=true;
+    if(field=="addr")
+      this.addrError=true; 
+    if(field=="addProof")
+      this.addProofError=true; 
+    if(field=="custID")
+      this.custError=true;   
+    if(field=="pwd")
+      this.pwdError=true;
+    if(field=="cpwd")
+      this.cpwdError=true;       
+  }
+
 
   jsonObj;
   onSubmit(formData)

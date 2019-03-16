@@ -5,34 +5,42 @@
       <table class="form-table">
       <tr>
       <td><label>Name (required) </label></td>
-      <td><input type="text" name="name" placeholder="Enter Name" formControlName="name" (blur)="activateError(name)" required></td> 
+      <td><input type="text" name="name" placeholder="Enter Name" formControlName="name" (blur)="activateError('name')" required></td> 
       </tr>
       <tr>
-          <td></td>
-          <td><div ng-messages="form.name.$error" ngIf="{{nameError}}">
-              <span ng-message="required">Name cannot be empty</span>
+          <td colspan="2">    
+          <div [hidden]="!(form.controls['name'].errors && nameError)" class="formError">
+              <div [hidden]="!form.controls['name'].errors.required">>>Name cannot be empty</div>
+              <div [hidden]="!form.controls['name'].errors.minlength">>>Name must contain 3 characters atleast</div>
+              <div [hidden]="!form.controls['name'].errors.maxlength">>>Name cannot be more than 32 characters</div>
+              <div [hidden]="!form.controls['name'].errors.pattern">>>Name can only contain albhabetic characters</div>
           </div>
       </tr>
       <tr>
       <td><label>Email ID (required) </label></td>
-      <td><input type="email" name="email" placeholder="Enter Email" formControlName="email" required></td>
+      <td><input type="email" name="email" placeholder="Enter Email" formControlName="email" (blur)="activateError('email')" required></td>
       </tr>
       <tr>
-            <td></td>
-            <td><span *ngIf="emailError">{{emailError}}</span></td>
+            <td colspan="2">    
+            <div [hidden]="!(form.controls['email'].errors && emailError)" class="formError">
+                <div [hidden]="!form.controls['email'].errors.required">>>Email cannot be empty</div>
+                <div [hidden]="!form.controls['email'].errors.pattern">>>Invalid Email</div>
+            </div>
       </tr>
       <tr>
       <td><label>Contact No. </label></td>
-      <td><input type="tel" name="mob" placeholder="Enter your Mobile Number" formControlName="mob"></td>
+      <td><input type="tel" name="mob" placeholder="Enter your Mobile Number" formControlName="mob" (blur)="activateError('mob')"></td>
       </tr>
       <tr>
-            <td></td>
-            <td><span *ngIf="mobError">{{mobError}}</span></td>
+            <td colspan="2">    
+            <div [hidden]="!(form.controls['mob'].errors && mobError)" class="formError">
+                <div [hidden]="!form.controls['mob'].errors.minlength">>>Mobile Number cannot be less than 8 characters</div>
+                <div [hidden]="!form.controls['mob'].errors.pattern">>>Invalid Mobile Number</div>
+            </div>
       </tr>
       </table>
       <label>Message (required)</label><br/>
       <textarea name="message" rows="10" cols="50" placeholder="Enter Message" formControlName="message" required></textarea><br/>
-      <span *ngIf="msgError">{{msgError}}</span>
       <hr/>
       <button type="submit" [disabled]="!form.valid">Submit</button>
       </form>     

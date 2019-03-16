@@ -107,6 +107,10 @@ button[type="submit"]:disabled{
 {
     border: 0px;
 }
+.formError{
+    color: red;
+    font-size: 12px;
+}
 
 span{
     color: red;

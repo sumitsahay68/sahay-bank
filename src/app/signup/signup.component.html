@@ -6,12 +6,31 @@
             <table class="form-table">
             <tr>
             <td><label>First Name (required) </label></td>
-            <td><input type="text" name="firstname" placeholder="Enter First Name" formControlName="firstname" required></td>
+            <td><input type="text" name="firstname" placeholder="Enter First Name" formControlName="firstname" (blur)="activateError('firstname')" required></td>
+            </tr>
+            <tr>
+                    <td colspan="2">    
+                    <div [hidden]="!(form.controls['firstname'].errors && firstnameError)" class="formError">
+                        <div [hidden]="!form.controls['firstname'].errors.required">>>First Name cannot be empty</div>
+                        <div [hidden]="!form.controls['firstname'].errors.minlength">>>First Name must contain 3 characters atleast</div>
+                        <div [hidden]="!form.controls['firstname'].errors.maxlength">>>First Name cannot be more than 20 characters</div>
+                        <div [hidden]="!form.controls['firstname'].errors.pattern">>>First Name can only contain albhabetic characters</div>
+                    </div>
             </tr>
             <tr>
             <td><label>Last Name </label></td>
-            <td><input type="text" name="lastname" placeholder="Enter Last Name" formControlName="lastname"></td>
+            <td><input type="text" name="lastname" placeholder="Enter Last Name" formControlName="lastname" (blur)="activateError('lastname')"></td>
              </tr>
+             <tr>
+                   
+                    <td colspan="2">
+                    <div [hidden]="!(form.controls['lastname'].errors && lastnameError)" class="formError"> 
+                        <div [hidden]="!form.controls['lastname'].errors.minlength">>>Last Name must contain 3 characters atleast</div>
+                        <div [hidden]="!form.controls['lastname'].errors.maxlength">>>Last Name cannot be more than 20 characters</div>
+                        <div [hidden]="!form.controls['lastname'].errors.pattern">>>Last Name can only contain albhabetic characters</div>
+                    </div>
+                    </td>
+            </tr> 
             <tr>
             <td><label>Gender (required) </label></td>
             <td><input type="radio" name="gender" value="male"  formControlName="gender">Male 
@@ -19,31 +38,88 @@
             </tr>
             <tr>
             <td><label>Date of Birth (required) </label></td>
-            <td><input type="date" name="dob" placeholder="Enter DOB (DD/MM/YYYY)" formControlName="dob" required></td>
+            <td><input type="date" name="dob" placeholder="Enter DOB (DD/MM/YYYY)" formControlName="dob" (blur)="activateError('dob')" required></td>
+            </tr>
+            <tr>
+                    <td colspan="2">    
+                    <div [hidden]="!(form.controls['dob'].errors && dobError)" class="formError">
+                        <div [hidden]="!form.controls['dob'].errors.required">>>Date Of Birth cannot be blank</div>
+                    </div>
             </tr>
             <tr>
             <td><label>Father's Name (required) </label></td>
-            <td><input type="text" name="fname" id="fname" placeholder="Enter Father's Name"  formControlName="fname" required></td>
+            <td><input type="text" name="fname" id="fname" placeholder="Enter Father's Name"  formControlName="fname" (blur)="activateError('fname')" required></td>
+            </tr>
+            <tr>
+                    
+                    <td colspan="2">    
+                    <div [hidden]="!(form.controls['fname'].errors && fnameError)" class="formError">
+                        <div [hidden]="!form.controls['fname'].errors.required">>>Father's Name cannot be empty</div>
+                        <div [hidden]="!form.controls['fname'].errors.minlength">>>Father's Name must contain 3 characters atleast</div>
+                        <div [hidden]="!form.controls['fname'].errors.maxlength">>>Father's Name cannot be more than 20 characters</div>
+                        <div [hidden]="!form.controls['fname'].errors.pattern">>>Father's Name can only contain albhabetic characters</div>
+                    </div>
+                    </td>
             </tr>
             <tr>
             <td><label>Email ID (required) </label></td>
-            <td><input type="email" name="email" placeholder="Enter your email" formControlName="email" required></td>
+            <td><input type="email" name="email" placeholder="Enter your email" formControlName="email" (blur)="activateError('email')" required></td>
+            </tr>
+            
+            <tr>
+                    <td colspan="2">    
+                    <div [hidden]="!(form.controls['email'].errors && emailError)" class="formError">
+                        <div [hidden]="!form.controls['email'].errors.required">>>Email cannot be empty</div>
+                        <div [hidden]="!form.controls['email'].errors.pattern">>>Invalid Email</div>
+                    </div>
+                    </td>
             </tr>
             </table>
-            <label>Address (required) </label><br/><textarea name="address" rows="8" cols="50" placeholder="Enter Address" formControlName="address" required></textarea><br/>
-            <label>Upload Address Proof(.pdf/.doc)</label><br/><input type="file" name="addr_proof" formControlName="addr_proof" required><br/><br/>
+            <label>Address (required) </label><br/><textarea name="address" rows="8" cols="50" placeholder="Enter Address" formControlName="address" (blur)="activateError('addr')" required></textarea><br/>
+            <div [hidden]="!(form.controls['address'].errors && addrError)" class="formError">
+                    <div [hidden]="!form.controls['address'].errors.required">>>Address cannot be empty</div>
+                    <div [hidden]="!form.controls['address'].errors.pattern">>>Address cannot be less than 10 characters</div>
+            </div>
+            <label>Upload Address Proof(.pdf/.doc)</label><br/><input type="file" name="addr_proof" formControlName="addr_proof" (blur)="activateError('addProof')" required><br>
+            <div [hidden]="!(form.controls['addr_proof'].errors && addProofError)" class="formError">
+                    <div [hidden]="!form.controls['addr_proof'].errors.required">>>Address Proof must be attached</div>
+            </div>
+            <br/>
             <table class="form-table">
             <tr>
             <td><label>Create Customer ID (required) </label></td>
-            <td><input type="text" name="id" id="id" placeholder="Enter Customer ID" formControlName="id" required></td>
+            <td><input type="text" name="id" id="id" placeholder="Enter Customer ID" formControlName="id" (blur)="activateError('custID')" required></td>
+            </tr>
+            <tr>
+                    <td colspan="2">    
+                    <div [hidden]="!(form.controls['id'].errors && custError)" class="formError">
+                        <div [hidden]="!form.controls['id'].errors.required">>>ID cannot be empty</div>
+                        <div [hidden]="!form.controls['id'].errors.minlength">>>ID must be of 6 characters</div>
+                        <div [hidden]="!form.controls['id'].errors.maxlength">>>ID must not exceed 6 characters</div>
+                        <div [hidden]="!form.controls['id'].errors.pattern">>>ID can only contain numeric characters</div>
+                    </div>
             </tr>
             <tr>
             <td><label>Create Password (required) </label></td>
-            <td><input type="password" name="password" id="password" placeholder="Enter Password" formControlName="password" #pwdfield required></td>
+            <td><input type="password" name="password" id="password" placeholder="Enter Password" formControlName="password" (blur)="activateError('pwd')" required></td>
+            </tr>
+            <tr>
+                    <td colspan="2">    
+                    <div [hidden]="!(form.controls['pwd'].errors && pwdError)" class="formError">
+                        <div [hidden]="!form.controls['pwd'].errors.required">>>Password cannot be empty</div>
+                        <div [hidden]="!form.controls['pwd'].errors.minlength">>>Password must be of 8 characters minimum</div>
+                        <div [hidden]="!form.controls['pwd'].errors.maxlength">>>Password cannot exceed 32 characters</div>
+                    </div>
             </tr>
             <tr>
             <td><label>Confirm Password (required) </label></td>
             <td><input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" formControlName="cpassword" required></td>
+            <tr>
+                    <td colspan="2">    
+                    <div [hidden]="passMatch" class="formError">
+                        <div [hidden]="passMatch">>>Passwords must match</div>
+                    </div>
+            </tr>
             </table>
             <button type="submit" [disabled]="!form.valid">Register</button>&nbsp;
             <button type="reset">Clear</button><br/><hr size=3>
