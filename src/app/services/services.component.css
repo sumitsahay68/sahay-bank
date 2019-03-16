@@ -1,0 +1,30 @@
+#services{
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    padding: 0.2% 0% 0% 2%;
+    background-color: white;
+    color: black;
+    opacity: 0.8;
+}
+#opt1{
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+#opt2{
+    display: inline-block; 
+    width: 33%; 
+    text-align: center;
+}
+#opt3{
+    float: right;
+    width: 33%;
+    text-align: center;    
+}
+
+img{
+    border: 4px solid grey;
+    height: 300px;
+    width: 300px;
+}

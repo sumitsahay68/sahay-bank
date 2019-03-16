@@ -1,0 +1,151 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url(assets/img/background_image.jpg);
+    color: whitesmoke;
+    font-size: 1.1rem;
+    font-family: Cambria;
+}
+.header{
+    opacity:  0.9;
+    position: absolute;right: 0;left: 0;top: 0;padding: 1rem;background-color:#222222;color:#FFFFFF
+}
+#logoarea{
+    float: left;width: 33%;
+}
+#navigation
+{
+    display: inline-block; width: 33%; text-align: center
+}
+#tagline{
+    float: right;width: 33%;text-align: right;
+}
+.heading{
+    opacity: 0.7;
+    background-color: #3fb6a7;
+    color: black;
+    margin:auto;
+    width:75%;
+    padding: 0% 0% 0% 2%;
+}
+#content {
+    background-color: white;
+    color: black;
+    opacity: 0.8;
+    width: 60%;
+    margin: auto;
+    vertical-align: middle;
+    padding: 0.2% 1% 0.2% 1%;
+}
+#sub-content{
+    padding: 0.2% 1% 0.2% 1%;
+    margin: auto;
+}
+#service{
+    padding: 0.2% 1% 0.2% 1%;
+    margin: auto;
+}
+.footer
+{
+    opacity: 0.9;
+    position: fixed;
+    height: 2%;
+    right: 0;left: 0;
+    bottom: 0;
+    padding: 1rem;
+    background-color:#222222;
+    color:#F6F3F2;
+    text-align: center
+}
+
+a:link {
+  color: white;
+  text-decoration: none
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: #3fb6b2;
+}
+
+
+a:active {
+  color: #3fb6b2;
+}
+a.form-link
+{
+    color: red;   
+}
+a.mail-link
+{
+    color: black;
+}
+
+a.current
+{
+    color: #3fb6b2
+}
+
+.forms{
+    border: 0zpx,solid,black;
+    width: 25%;
+    margin: auto;
+    height: 80%;
+    /*background-image: url(form_back.jpg)*/
+    color: darkcyan;
+    font-weight: bold;
+    font-size: 1pw;
+}
+
+button[type="submit"]:disabled{
+    background-color:rgb(186, 186, 187)
+}
+
+.form-table
+{
+    border: 0px;
+}
+
+span{
+    color: red;
+    font-size: 15px
+}
+
+fieldset{
+     background-color: white; color:#222222; opacity: 0.8
+}
+legend{
+    border: 4px dashed #20bce5;
+    padding: 5px;
+}
+mark{
+    background-color: #3fb6a1
+}
+
+.offices{
+    bottom: 0;
+}
+
+
+
+button{
+    background-color: #3fb6b2;
+    padding: 12px 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    margin: 0;
+    font-weight: bold;
+}
+
+input, textarea {
+    border: 1px solid #cecece;
+    background-color: #efefef;
+    color: #787575;
+    border-radius: 5px;
+    outline: none;
+}

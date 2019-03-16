@@ -1,0 +1,84 @@
+<div class="forms">
+  <fieldset> 
+      <legend><mark>CONTACT US</mark></legend>
+      <form class="container" name="contact" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+      <table class="form-table">
+      <tr>
+      <td><label>Name (required) </label></td>
+      <td><input type="text" name="name" placeholder="Enter Name" formControlName="name" (blur)="activateError(name)" required></td> 
+      </tr>
+      <tr>
+          <td></td>
+          <td><div ng-messages="form.name.$error" ngIf="{{nameError}}">
+              <span ng-message="required">Name cannot be empty</span>
+          </div>
+      </tr>
+      <tr>
+      <td><label>Email ID (required) </label></td>
+      <td><input type="email" name="email" placeholder="Enter Email" formControlName="email" required></td>
+      </tr>
+      <tr>
+            <td></td>
+            <td><span *ngIf="emailError">{{emailError}}</span></td>
+      </tr>
+      <tr>
+      <td><label>Contact No. </label></td>
+      <td><input type="tel" name="mob" placeholder="Enter your Mobile Number" formControlName="mob"></td>
+      </tr>
+      <tr>
+            <td></td>
+            <td><span *ngIf="mobError">{{mobError}}</span></td>
+      </tr>
+      </table>
+      <label>Message (required)</label><br/>
+      <textarea name="message" rows="10" cols="50" placeholder="Enter Message" formControlName="message" required></textarea><br/>
+      <span *ngIf="msgError">{{msgError}}</span>
+      <hr/>
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+      </form>     
+  </fieldset>
+      </div>
+      <br/><br/> <br><br/>
+<fieldset style="background-color: white; color:#222222;opacity: 0.7">
+    
+    <div class="offices">
+        <div id="head" style="float: left; width: 33%">
+    <h2>Head Office</h2>
+    <strong>Address:</strong><br/>
+    <address>
+        Sahay Bank Ltd., Sahay Towers,<br/>
+        Connaught Place,<br/>
+        New Delhi,<br/>
+        India - 110121
+    </address><br/>
+    <strong>PH: </strong>011-25466484<br/>
+    <strong>Email ID: </strong><a class="mail-link" href="mailto:enquiry@sahaybank.com">enquiry@sahaybank.com</a><br>
+        </div>
+
+    <div id="Regional Office" style="display: inline-block; width: 33%; text-align: center">
+       <h2>Regional Office</h2>
+    <strong>Address:</strong><br/>
+    <address>
+        Sahay Bank Ltd., Block G9,<br/>
+        Near XYZ,<br/>
+        Mumbai,<br/>
+        India - 440121
+    </address><br/>
+    <strong>PH: </strong>011-25466484<br/>
+    <strong>Email ID: </strong><a class="mail-link" href="mailto:enquiry@sahaybank.com">enquiry@sahaybank.com</a><br>
+    </div>   
+
+     <div id="Global Office" style="float: right; width: 33%;text-align: right">
+       <h2>Global Office</h2>
+    <strong>Address:</strong><br/>
+    <address>
+        Sahay Bank Ltd., Sahay Towers,<br/>
+        Mountain View,<br/>
+        Los Angeles, California,<br/>
+        USA - 940939
+    </address><br/>
+    <strong>PH: </strong>+1-825466484<br/>
+    <strong>Email ID: </strong><a class="mail-link" href="mailto:enquiry_int@sahaybank.co.us">enquiry_int@sahaybank.co.us</a><br>
+    </div>   
+    </div>
+</fieldset>

@@ -1,0 +1,15 @@
+<div id="content">
+    <h1>Deposits</h1>
+    
+        <label>Deposit Type&nbsp;</label>
+        <select #deposit_type (change)="display(deposit_type.value)">
+          <option value="0">--Choose Type--</option>
+          <option value="1">Fixed Deposit</option>
+          <option value="2">Recurring Deposit</option>
+        </select>
+    <div [ngSwitch]="option" id="sub-content">
+      <p *ngSwitchCase="0"><span style="color: red;font-size: 90%">Select Deposit type!</span></p>
+      <p *ngSwitchCase="1"><app-fixed></app-fixed></p>
+      <p *ngSwitchCase="2"><app-recurring></app-recurring></p>
+    </div>
+  </div>

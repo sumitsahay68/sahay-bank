@@ -1,0 +1,19 @@
+<div id="content">
+  <h1>Loans</h1>
+  
+      <label>Loan Type&nbsp;</label>
+      <select #loan_type (change)="display(loan_type.value)">
+        <option value="0">--Choose Type--</option>
+        <option value="1">Personal Loan</option>
+        <option value="2">Education Loan</option>
+        <option value="3">Car Loan</option>
+        <option value="4">Home Loan</option>
+      </select>
+  <div [ngSwitch]="option" id="sub-content">
+    <p *ngSwitchCase="0"><span style="color: red;font-size: 90%">Select Loan type!</span></p>
+    <p *ngSwitchCase="1"><app-personal></app-personal></p>
+    <p *ngSwitchCase="2"><app-education></app-education></p>
+    <p *ngSwitchCase="3"><app-car></app-car></p>
+    <p *ngSwitchCase="4"><app-home-loan></app-home-loan></p>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "customers": [
+    {
+      "firstname": "Sumit",
+      "lastname": "Sahay",
+      "gender": "male",
+      "dob": "2019-03-28",
+      "fname": "hellooo",
+      "email": "sahaysumit06@gmail.com",
+      "address": "ADDRESS\nADDRESS\nADDRESS\nADDRESS\nADDRESS",
+      "addr_proof": "C:\\fakepath\\debug.log",
+      "id": "768993",
+      "password": "hello123",
+      "cpassword": "hello123"
+    },
+    {
+      "firstname": "Sumit",
+      "lastname": "Sahay",
+      "gender": "male",
+      "dob": "2019-03-13",
+      "fname": "hellllo",
+      "email": "sdsddsadddasdadaddsf",
+      "address": "fdaffsa\ndas\ndasd\nd\nas\nd\nd\nsa\nd\n\\f\nf\naf\n\nd\nf\nf\nadff\nf\n",
+      "addr_proof": "C:\\fakepath\\protractor.conf.js",
+      "id": "767874",
+      "password": "qwertyuiop",
+      "cpassword": "qwertyuiop"
+    }
+  ]
+}

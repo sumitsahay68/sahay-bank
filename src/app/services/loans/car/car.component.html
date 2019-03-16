@@ -1,0 +1,56 @@
+<div id="service" style="background-image: url(../../../../assets/img/car-loans.jpg)">
+<form class="container" name="loan" [formGroup]="calculator" (ngSubmit)="xyz(calculator.value)">
+    <h1>Car Loans</h1>
+    <table class="form-table"> 
+      <strong>EMI CALCULATOR:</strong> 
+      <tr>
+        <td>Loan Amount (INR)</td>
+        <td><input type="number" name="amount" placeholder="Enter Amount" #amt formControlName="amount" required></td>
+      </tr>
+      <tr>
+        <td>Interest Rate</td>
+        <td><input type="number" name="rate" placeholder="Enter Interest Rate(in %)" #rate formControlName="rate" required></td>
+      </tr>
+      <tr>
+        <td>Duration (in Months)</td>
+        <td><input type="number" name="duration" placeholder="Enter Duration in months" #dur formControlName="duration" required></td>
+      </tr>
+      <tr>
+          <td>EMI (INR)</td>
+          <td><input type="number" name="res" value="{{ emi }}" formControlName="res" readonly></td>
+      </tr>
+    </table><br>
+    <button type="button" (click)="calculateEMI(amt.value,rate.value,dur.value)" [disabled]="calculator.valid">Calculate EMI</button>&nbsp;
+    <button type="reset">Clear</button>
+  </form>
+  <br>
+  <hr size="5%" noshade="true">
+  <br>
+  <form class="container" name="loan-service" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <table class="form-table">
+      <strong>Apply Online: </strong>
+      <tr>
+        <td>Loan Amount (INR)</td>
+        <td><input type="number" name="amount" placeholder="Enter Amount" formControlName="amount" required></td>
+      </tr>
+      <tr>
+          <td>Monthly Income (INR)</td>
+          <td><input type="number" name="income" placeholder="Enter your income" formControlName="income" required></td>
+      </tr>
+      <tr>
+            <td>Time Frame of Purchase</td>
+            <td><select name="tframe" formControlName="tframe">
+              <option>--select time frame--</option>
+              <option value="lt7">Less than 7 days</option>
+              <option value="b7t15">Between 7 days to 15 days</option>
+              <option value="mt15">More than 15 days</option>
+            </select></td>
+      </tr>
+    </table><br>
+    <button type="submit" [disabled]="!form.valid">Apply</button>&nbsp;
+    <button type="reset">Clear</button><br><br>
+    </form>
+  
+
+</div>
+
